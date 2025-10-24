@@ -23,6 +23,17 @@ Then("a success alert {string} is displayed", (expectedMessage: string) => {
   cy.get('@alertStub').should('have.been.calledWith', expectedMessage);
 });
 
+Given("the email API is mocked to return a 200 with empty body", () => {
+  cy.window().then((win) => {
+    cy.stub(win, 'alert').as('alertStub');
+  });
+  
+  cy.intercept('POST', 'https://api.emailjs.com/api/v1.0/email/send-form', {
+    statusCode: 200,
+    body: {}
+  }).as('sendFormRequest');
+});
+
 // API mocking setup
 Given("the email API is mocked to return a 404 with empty body", () => {
   cy.window().then((win) => {
