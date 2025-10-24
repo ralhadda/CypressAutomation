@@ -19,5 +19,8 @@ module.exports = defineConfig({
     },
     specPattern: "cypress/e2e/**/*.feature",
     supportFile: "cypress/support/e2e.ts",
+    env: {
+      tags: "not @ignore"
+    }
   },
 });

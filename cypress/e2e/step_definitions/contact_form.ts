@@ -35,7 +35,7 @@ Given("the email API is mocked to return a 404 with empty body", () => {
   }).as('sendFormRequest');
 });
 
-Given("the email API is mocked to return a 404 with invalid JSON", () => {
+Given("the email API is mocked to return a 404 with invalid JSON response", () => {
   cy.window().then((win) => {
     cy.stub(win, 'alert').as('alertStub');
   });

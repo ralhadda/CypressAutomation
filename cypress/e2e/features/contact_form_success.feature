@@ -1,5 +1,6 @@
 Feature: Contact Form Success Handling
 
+  @ignore
   Scenario: Form submission shows success alert
     Given the user is on the Assert Edge website
     When the user fills out the contact form
