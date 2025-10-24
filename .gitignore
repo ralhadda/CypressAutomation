@@ -6,6 +6,7 @@ package-lock.json
 cypress/videos/
 cypress/screenshots/
 cypress/downloads/
+cypress/reports/
 
 # Logs and reports
 *.log

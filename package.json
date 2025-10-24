@@ -4,7 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx cypress open"
+    "test": "npx cypress open",
+    "test:run": "npx cypress run",
+    "test:edge-cases": "npx cypress run --spec 'cypress/e2e/features/contact_form_edge_cases.feature'",
+    "test:report": "npm run test:run && node cypress/support/generate-report.ts",
+    "test:edge-cases:report": "npm run test:edge-cases && node cypress/support/generate-report.ts",
+    "report:open": "open cypress/reports/cucumber-html/index.html"
   },
   "author": "",
   "license": "ISC",
@@ -14,6 +19,7 @@
     "@types/node": "^24.9.1",
     "cypress": "^15.5.0",
     "esbuild": "^0.25.11",
+    "multiple-cucumber-html-reporter": "^3.9.3",
     "typescript": "^5.9.3"
   }
 }

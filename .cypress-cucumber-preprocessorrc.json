@@ -5,6 +5,6 @@
   ],
   "json": {
     "enabled": true,
-    "output": "cypress/generate-reports/cucumber-report.json"
+    "output": "cypress/reports/cucumber-json/cucumber-report.json"
   }
 }
