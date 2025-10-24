@@ -4,11 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx cypress open",
-    "test:run": "npx cypress run",
-    "test:edge-cases": "npx cypress run --spec 'cypress/e2e/features/contact_form_edge_cases.feature'",
-    "test:report": "npm run test:run && node cypress/support/generate-report.ts",
-    "test:edge-cases:report": "npm run test:edge-cases && node cypress/support/generate-report.ts",
+    "test": "npx cypress run",
+    "test:integration": "npx cypress run --env tags='@integration and not @ignore'",
+    "test:report": "npm run test:run && node cypress/support/generate-report.js",
+    "test:report:ci": "npx cypress run --env tags='not @ignore' && node cypress/support/generate-report.js --env tags='@integration and not @ignore'",
     "report:open": "open cypress/reports/cucumber-html/index.html"
   },
   "author": "",

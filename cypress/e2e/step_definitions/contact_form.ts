@@ -7,6 +7,10 @@ When("the user fills out the contact form", () => {
   cy.get('textarea[name="message"]').type('This is a test message');
 });
 
+When("the user submits the form without mocking the API", () => {
+  cy.contains('button', 'Send', { matchCase: false }).click();
+});
+
 When("the user submits the form", () => {
   cy.contains('button', 'Send', { matchCase: false }).click();
   cy.wait('@sendFormRequest');
