@@ -1,7 +1,7 @@
 Feature: Contact Form Success Handling
 
   Scenario: Form submission shows success alert
-    Given I visit the Assert Edge website
-    When I fill out the contact form
-    When I submit the form
-    Then I should see an alert with "Message sent successfully!"
+    Given the user is on the Assert Edge website
+    When the user fills out the contact form
+    And the user submits the form
+    Then a success alert "Message sent successfully!" is displayed
