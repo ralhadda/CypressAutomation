@@ -4,20 +4,6 @@ Given("I visit the Assert Edge website", () => {
   cy.visit("https://www.assertedge.com");
 });
 
-When("I intercept the email API to return a 404 error", () => {
-  cy.intercept('POST', 'https://api.emailjs.com/api/v1.0/email/send-form', {
-    statusCode: 404,
-    body: {
-      message: 'Not Found',
-      error: 'Endpoint not found'
-    }
-  }).as('sendFormRequest');
-
-  cy.window().then((win) => {
-    cy.stub(win, 'alert').as('alertStub');
-  });
-});
-
 When("I fill out the contact form", () => {
   cy.get('input[name="name"]').type('Test User');
   cy.get('input[name="email"]').type('test@example.com');
