@@ -37,3 +37,8 @@ Then("I should see an error alert with {string}", (expectedMessage: string) => {
   cy.get('@alertStub').should('have.been.calledOnce');
   cy.get('@alertStub').should('have.been.calledWith', expectedMessage); 
 });
+
+Then("I should see an alert with {string}", (expectedMessage: string) => {
+  cy.get('@alertStub').should('have.been.calledOnce');
+  cy.get('@alertStub').should('have.been.calledWith', expectedMessage); 
+});
