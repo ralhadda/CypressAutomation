@@ -30,7 +30,7 @@ jobs:
       
       - name: Generate HTML Report
         if: always()
-        run: node cypress/support/generate-report.js
+        run: node cypress/support/generate-report.ts
       
       - name: Upload Cucumber HTML Report
         uses: actions/upload-artifact@v4
