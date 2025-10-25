@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx cypress run",
+    "test:run": "npx cypress run",
     "test:integration": "npx cypress run --env tags='@integration and not @ignore'",
     "test:report": "npm run test:run && node cypress/support/generate-report.js",
     "test:report:ci": "npx cypress run --env tags='not @ignore' && node cypress/support/generate-report.js --env tags='@integration and not @ignore'",
