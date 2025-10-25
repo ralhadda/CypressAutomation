@@ -1,0 +1,35 @@
+name: Weekly Test Report
+
+on:
+  schedule:
+    # Runs every Monday at 6 AM Pacific Time (2 PM UTC)
+    - cron: '0 14 * * 1'
+  workflow_dispatch: # Allow manual trigger too
+
+jobs:
+  generate-report:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.10.0'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate Test Report
+        run: npm run test:report:ci
+
+      - name: Upload Cucumber HTML Report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: weekly-cucumber-html-report
+          path: cypress/reports/cucumber-html/
+          retention-days: 30
